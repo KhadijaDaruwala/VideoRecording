@@ -10,7 +10,7 @@ import UIKit
 import MobileCoreServices
 import AVFoundation
 
-class ViewController: UIViewController {
+class RecordViewController: UIViewController {
 
     // Class Properties
     let imagePicker = UIImagePickerController()
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 }
 
 //MARK: Button Actions
-extension ViewController {
+extension RecordViewController {
     @IBAction func buttonStartStopRecording(_ sender: Any) {
         setUpCameraOverlay()
         if !checkCameraAccess(){
@@ -76,7 +76,7 @@ extension ViewController {
 }
 
 //MARK: Custom Methods
-extension ViewController {
+extension RecordViewController {
     func setUpCameraOverlay(){
         cameraOverlay = RecordView.loadNib()
         cameraOverlay.frame = UIScreen.main.bounds
@@ -149,7 +149,7 @@ extension ViewController {
 }
 
 // MARK: - UIImagePickerControllerDelegate
-extension ViewController: UIImagePickerControllerDelegate {
+extension RecordViewController: UIImagePickerControllerDelegate {
 
     func imagePickerController( _ picker: UIImagePickerController,
                                 didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
@@ -158,5 +158,5 @@ extension ViewController: UIImagePickerControllerDelegate {
 }
 
 // MARK: - UINavigationControllerDelegate
-extension ViewController: UINavigationControllerDelegate {
+extension RecordViewController: UINavigationControllerDelegate {
 }
