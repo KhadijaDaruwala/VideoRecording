@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zIY-kB-hNr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zIY-kB-hNr">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -31,26 +33,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bA-I9-I6x">
-                                <rect key="frame" x="153" y="433" width="108" height="30"/>
-                                <state key="normal" title="Start Recording"/>
-                                <connections>
-                                    <action selector="buttonStartStopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ay1-f0-vHf"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bpX-hu-nU2">
+                                <rect key="frame" x="156.5" y="413" width="101" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bA-I9-I6x">
+                                        <rect key="frame" x="0.0" y="0.0" width="101" height="30"/>
+                                        <state key="normal" title="Record Video"/>
+                                        <connections>
+                                            <action selector="buttonRecordVideoClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HI7-RT-kl6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7U-v8-A0o">
+                                        <rect key="frame" x="0.0" y="40" width="101" height="30"/>
+                                        <state key="normal" title="Capture Image"/>
+                                        <connections>
+                                            <action selector="buttonCaptureImageClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S9j-ir-s1Y"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FWH-Fh-xS5">
+                                <rect key="frame" x="50" y="623" width="314" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="Sc7-70-vEn"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="6bA-I9-I6x" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="UU4-ff-EDO"/>
-                            <constraint firstItem="6bA-I9-I6x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vKS-Cg-g10"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bpX-hu-nU2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8qa-7p-IUK"/>
+                            <constraint firstItem="FWH-Fh-xS5" firstAttribute="top" secondItem="bpX-hu-nU2" secondAttribute="bottom" constant="140" id="NK7-V3-rxD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FWH-Fh-xS5" secondAttribute="trailing" constant="50" id="eb3-3G-XyX"/>
+                            <constraint firstItem="FWH-Fh-xS5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="iDq-pn-QMM"/>
+                            <constraint firstItem="bpX-hu-nU2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lzp-77-5Oa"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lw3-HB-zQc"/>
+                    <connections>
+                        <outlet property="imagePreview" destination="FWH-Fh-xS5" id="yr2-Vr-HPs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-483" y="47"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
